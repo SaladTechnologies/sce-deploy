@@ -60,3 +60,5 @@ jobs:
           salad_organization: salad
           salad_project: development
           salad_container_group: test-actions
+          salad_api_key: ${{secrets.SALAD_API_KEY}}
+          image_name: coryrieth/beepfast:long
