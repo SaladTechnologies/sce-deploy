@@ -1,5 +1,4 @@
 import * as core from '@actions/core'
-import { wait } from './wait'
 
 /**
  * The main function for the action.
@@ -7,20 +6,36 @@ import { wait } from './wait'
  */
 export async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
+    core.warning('Starting action')
+    const org = core.getInput('salad_organization')
+    const proj = core.getInput('salad_project')
+    const containerGroup = core.getInput('salad_container_group')
+    const apiKey = core.getInput('salad_api_key')
+    const imageName = core.getInput('image_name')
 
-    // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-    core.debug(`Waiting ${ms} milliseconds ...`)
+    core.info(
+      `Starting to deploy ${imageName} to ${org}/${proj}/${containerGroup}`
+    )
 
-    // Log the current timestamp, wait, then log the new timestamp
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    const response = await fetch(
+      `https://api.salad.com/api/public/organizations/${org}/projects/${proj}/containers/${containerGroup}`,
+      {
+        method: 'PATCH',
+        body: JSON.stringify({ container: { image: imageName } }),
+        headers: {
+          'Content-Type': 'application/merge-patch+json',
+          'Salad-Api-Key': apiKey,
+          'User-Agent': 'Salad SCE Deploy/0.1'
+        }
+      }
+    )
 
-    // Set outputs for other workflow steps to use
-    core.setOutput('time', new Date().toTimeString())
+    if (!response.ok) {
+      throw new Error('❌Unable to deploy updated container to Salad.❌')
+    }
+
+    core.info('✅ The SCE Container Group was successfully updated!✅')
   } catch (error) {
-    // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
   }
 }
