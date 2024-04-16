@@ -26,57 +26,57 @@ inputs:
     required: true
 
   image_name:
-    description: 'The name of the container, including the registry to deploy'
+    description: 'The name of the container, including the registry and the tag'
     required: true
 
-  # ghcr
-  github_token:
-    description:
-      'Personal Access Token (PAT) used to authenticate with the GitHub
-      Container Registry.'
-    required: false
+  # # ghcr
+  # github_token:
+  #   description:
+  #     'Personal Access Token (PAT) used to authenticate with the GitHub
+  #     Container Registry.'
+  #   required: false
 
-  # basic auth
-  basic_username:
-    description:
-      'The username for basic auth - to be used in conjunction with
-      `basic_password`'
-    required: false
+  # # basic auth
+  # basic_username:
+  #   description:
+  #     'The username for basic auth - to be used in conjunction with
+  #     `basic_password`'
+  #   required: false
 
-  basic_password:
-    description:
-      'The password for basic auth - to be used in conjunction with
-      `basic_username`'
-    required: false
+  # basic_password:
+  #   description:
+  #     'The password for basic auth - to be used in conjunction with
+  #     `basic_username`'
+  #   required: false
 
-  # gcp gcr
-  service_key:
-    description:
-      'The username for basic auth - to be used in conjunction with
-      `basic_password`'
-    required: false
+  # # gcp gcr
+  # service_key:
+  #   description:
+  #     'The username for basic auth - to be used in conjunction with
+  #     `basic_password`'
+  #   required: false
 
-  # ecr
-  aws_access_key_id:
-    description:
-      'AWS Access Key ID - to be used in conjunction with
-      `aws_secret_access_key`'
-    required: false
+  # # ecr
+  # aws_access_key_id:
+  #   description:
+  #     'AWS Access Key ID - to be used in conjunction with
+  #     `aws_secret_access_key`'
+  #   required: false
 
-  aws_secret_access_key:
-    description:
-      'AWS Secret Access Key - to be used in conjunction with
-      `aws_access_key_id`'
-    required: false
+  # aws_secret_access_key:
+  #   description:
+  #     'AWS Secret Access Key - to be used in conjunction with
+  #     `aws_access_key_id`'
+  #   required: false
 
-  # docker hub
-  dockerhub_username:
-    description: 'Docker Hub Username'
-    required: false
+  # # docker hub
+  # dockerhub_username:
+  #   description: 'Docker Hub Username'
+  #   required: false
 
-  dockerhub_password:
-    description: 'Docker Hub Personal Access Token'
-    required: false
+  # dockerhub_password:
+  #   description: 'Docker Hub Personal Access Token'
+  #   required: false
 
 runs:
   using: node20

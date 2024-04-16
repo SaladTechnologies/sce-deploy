@@ -13,12 +13,9 @@ export async function run(): Promise<void> {
     const apiKey = core.getInput('salad_api_key')
     const imageName = core.getInput('image_name')
 
-    core.warning(`Org: ${org}`)
-    core.warning(`Project: ${proj}`)
-    core.warning(`ContainerGroup: ${containerGroup}`)
-
-    core.warning(`Making request`)
-    // https.request()
+    core.info(
+      `Starting to deploy ${imageName} to ${org}/${proj}/${containerGroup}`
+    )
 
     const response = await fetch(
       `https://api.salad.com/api/public/organizations/${org}/projects/${proj}/containers/${containerGroup}`,
@@ -33,20 +30,12 @@ export async function run(): Promise<void> {
       }
     )
 
-    core.warning(response.status.toString())
-
     if (!response.ok) {
-      core.setFailed('Unable to deploy updated container to Salad')
-      return
+      throw new Error('❌Unable to deploy updated container to Salad.❌')
     }
 
-    const body = await response.json()
-
-    core.warning(body)
+    core.info('✅ The SCE Container Group was successfully updated!✅')
   } catch (error) {
-    core.warning('Had an error')
-    core.error(JSON.stringify(error))
-    // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
   }
 }
