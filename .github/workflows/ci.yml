@@ -57,6 +57,6 @@ jobs:
         id: test-action
         uses: ./
         with:
-          salad-organization: salad
-          salad-project: development
-          salad-container-group: test-actions
+          salad_organization: salad
+          salad_project: development
+          salad_container_group: test-actions

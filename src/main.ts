@@ -7,13 +7,13 @@ import * as core from '@actions/core'
 export async function run(): Promise<void> {
   try {
     core.warning('Starting action')
-    let org = core.getInput('salad-organization')
-    let proj = core.getInput('salad-project')
-    let containerGroup = core.getInput('salad-container-group')
+    const org = core.getInput('salad_organization')
+    const proj = core.getInput('salad_project')
+    const containerGroup = core.getInput('salad_container_group')
 
-    core.warning('Org:' + org)
-    core.warning('Project:' + proj)
-    core.warning('ContainerGroup:' + containerGroup)
+    core.warning(`Org: ${org}`)
+    core.warning(`Project: ${proj}`)
+    core.warning(`ContainerGroup: ${containerGroup}`)
     // const ms: string = core.getInput('milliseconds')
 
     // // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
