@@ -13,7 +13,7 @@ Place the following in step in your github actions
 
 ```yml
  - name: Deploy Update to SCE
-        uses: SaladTechnologies/sce-deploy@v1
+        uses: SaladTechnologies/sce-deploy@v0.1.0
         with:
           salad_organization: <salad organization name>
           salad_project: <salad project name>
