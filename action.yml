@@ -1,5 +1,6 @@
 name: 'Salad Container Engine Action'
-description: 'Automatically deploy new GHCR containers to your Salad Account.'
+description:
+  'Automatically deploy updated container images to your Salad Account.'
 author: 'SaladTechnologies'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
