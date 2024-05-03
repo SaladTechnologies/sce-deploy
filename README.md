@@ -13,7 +13,7 @@ Place the following in step in your github actions
 
 ```yml
  - name: Deploy Update to SCE
-        uses: SaladTechnologies/sce-deploy@v0.1.0
+        uses: SaladTechnologies/sce-deploy@v0.1.1
         with:
           salad_organization: <salad organization name>
           salad_project: <salad project name>
@@ -55,3 +55,20 @@ To add a `secret` go to the `Settings` tab in your project then select
 | `salad_container_group` | Yes      | `my-container-group`       | The Salad container group name. Can be found in the portal url bar |
 | `salad_api_key`         | Yes      | `********`                 | The Salad API key                                                  |
 | `image_name`            | Yes      | `ghcr.io/my-container:0.1` | The full image name, including registry, image name and tag        |
+| `aws_access_key_id`     | NO       | `********`                 | The AWS ECR Access key                                             |
+| `aws_secret_access_key` | NO       | `********`                 | The AWS Secret Access Key associated with the Access Key Id        |
+
+## AWS ECR
+
+```yml
+ - name: Deploy Update to SCE
+        uses: SaladTechnologies/sce-deploy@v0.1.1
+        with:
+          salad_organization: <salad organization name>
+          salad_project: <salad project name>
+          salad_container_group: <salad container group name>
+          salad_api_key: ${{secrets.SALAD_API_KEY}}
+          image_name: <registry:tag>
+          aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+```
