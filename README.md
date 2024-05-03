@@ -7,7 +7,7 @@
 [![CodeQL](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml)
 [![Coverage](./badges/coverage.svg)](./badges/coverage.svg) -->
 
-# Usage Example
+## Usage Example
 
 Place the following in step in your github actions
 
@@ -23,7 +23,7 @@ Place the following in step in your github actions
 
 ```
 
-# Requirements
+## Requirements
 
 - You must already have a Salad account with an existing container group. This
   github action will simply update the image for the container group. All other
@@ -31,7 +31,7 @@ Place the following in step in your github actions
 - You must get your Salad API key [here](https://portal.salad.com/api-key). It
   is highly recommended to store this in Github as a secret (see example above).
 
-# Setup Steps
+## Setup Steps
 
 1. Create a Salad account at https://portal.salad.com
 2. Get the API key for your Salad account
@@ -40,7 +40,7 @@ Place the following in step in your github actions
 4. Update the github action to include the salad organization, project &
    container group
 
-### Settings
+## Settings
 
 Keys can be added directly to your .yml config file or referenced from your
 project `Secrets` storage.

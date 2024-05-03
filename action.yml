@@ -57,18 +57,18 @@ inputs:
   #     `basic_password`'
   #   required: false
 
-  # # ecr
-  # aws_access_key_id:
-  #   description:
-  #     'AWS Access Key ID - to be used in conjunction with
-  #     `aws_secret_access_key`'
-  #   required: false
+  # ecr
+  aws_access_key_id:
+    description:
+      'AWS Access Key ID - to be used in conjunction with
+      `aws_secret_access_key`'
+    required: false
 
-  # aws_secret_access_key:
-  #   description:
-  #     'AWS Secret Access Key - to be used in conjunction with
-  #     `aws_access_key_id`'
-  #   required: false
+  aws_secret_access_key:
+    description:
+      'AWS Secret Access Key - to be used in conjunction with
+      `aws_access_key_id`'
+    required: false
 
   # # docker hub
   # dockerhub_username:
