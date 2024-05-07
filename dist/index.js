@@ -24966,7 +24966,7 @@ async function run() {
         const body = { container: { image: imageName } };
         if (awsKeyId && secretAccessKey) {
             core.info(`Adding AWS Credentials`);
-            body.registry_authentication = {
+            body.container.registry_authentication = {
                 aws_ecr: {
                     access_key_id: awsKeyId,
                     secret_access_key: secretAccessKey
